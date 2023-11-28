@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Contact CRUD App</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Contact List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% contacts.forEach(contact => { %>
+          <tr>
+            <th scope="row"><%= contact.id %></th>
+            <td><%= contact.name %></td>
+            <td><%= contact.address %></td>
+            <td><%= contact.phone %></td>
+            <td><%= contact.email %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Contact CRUD App</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Contact Management</h2>
+    
+    <!-- Add a contact button -->
+    <a href="/create" class="btn btn-primary mb-3">Add Contact</a>
+
+    <!-- Display existing contacts -->
+    <h2>Existing Contacts</h2>
+    <p>Click on a contact to edit or delete.</p>
+    <ul class="list-group">
+      <!-- Loop through contacts and display them -->
+      <% contacts.forEach(contact => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= contact.name %>
+          <div>
+            <!-- Edit button -->
+            <a href="/edit/<%= contact.id %>" class="btn btn-warning btn-sm mr-2">Edit</a>
+            <!-- Delete button -->
+            <form action="/delete" method="post" style="display:inline;">
+              <input type="hidden" name="id" value="<%= contact.id %>">
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            <!-- Details button -->
+            <a href="/details/<%= contact.id %>" class="btn btn-info btn-sm ml-2">Details</a>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>
